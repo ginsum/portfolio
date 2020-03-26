@@ -2,12 +2,19 @@ import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-interface Props {}
+interface Props {
+  content: string;
+  setContent: any;
+}
 
-const ContentInput: React.FC<Props> = ({}) => {
+const ContentInput: React.FC<Props> = ({ content, setContent }) => {
   return (
     <>
-      <ReactQuill placeholder="서평을 입력하세요" />
+      <ReactQuill
+        value={content}
+        onChange={setContent}
+        placeholder="내용을 입력하세요"
+      />
     </>
   );
 };

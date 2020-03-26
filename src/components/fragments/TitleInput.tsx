@@ -1,12 +1,23 @@
 import React from "react";
 import { TitleInputWrapper } from "../../style/FragmentStyle";
 
-interface Props {}
+interface Props {
+  title: string;
+  setTitle: any;
+}
 
-const TitleInput: React.FC<Props> = ({}) => {
+const TitleInput: React.FC<Props> = ({ title, setTitle }) => {
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setTitle(value);
+  };
+
   return (
     <>
-      <TitleInputWrapper></TitleInputWrapper>
+      <TitleInputWrapper
+        value={title}
+        onChange={handleTitleChange}
+      ></TitleInputWrapper>
     </>
   );
 };
