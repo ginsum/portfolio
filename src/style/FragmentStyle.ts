@@ -32,3 +32,43 @@ export const TitleInputWrapper = styled.input`
   padding-left: 40px;
   padding-bottom: 10px;
 `;
+
+export const TitleWrapper = styled.div`
+  width: 70%;
+  height: 80px;
+  font-size: 36px;
+  margin: 40px;
+  background-color: rgb(49, 49, 49, 0);
+  padding-left: 40px;
+  padding-bottom: 10px;
+`;
+
+export const ArticleWrapper = styled.div`
+  width: 70%;
+  height: 80px;
+  font-size: 18px;
+  margin: 40px;
+  background-color: rgb(49, 49, 49, 0);
+  padding-left: 40px;
+  padding-bottom: 10px;
+`;
+
+export const UserName = styled.div`
+  width: 70%;
+  height: 80px;
+  font-size: 18px;
+  margin: 40px;
+  background-color: rgb(49, 49, 49, 0);
+  padding-left: 40px;
+  padding-bottom: 10px;
+`;
+
+export const ContentDate = styled.div`
+  width: 70%;
+  height: 80px;
+  font-size: 18px;
+  margin: 40px;
+  background-color: rgb(49, 49, 49, 0);
+  padding-left: 40px;
+  padding-bottom: 10px;
+`;

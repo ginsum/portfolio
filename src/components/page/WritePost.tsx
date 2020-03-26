@@ -2,7 +2,7 @@ import React from "react";
 import SettingPost from "../fragments/SettingPost";
 import TitleInput from "../fragments/TitleInput";
 import ContentInput from "../fragments/ContentInput";
-import { StoreContext } from "../../store";
+import { PostContext } from "../../store/writePost";
 
 interface Props {}
 
@@ -12,7 +12,7 @@ const WritePost: React.FC<Props> = ({}) => {
     content: [content, setContent],
     date: [date, setDate],
     catagory: [catagory, setCatagory]
-  } = React.useContext(StoreContext);
+  } = React.useContext(PostContext);
   return (
     <>
       <SettingPost setDate={setDate} setCatagory={setCatagory}></SettingPost>
