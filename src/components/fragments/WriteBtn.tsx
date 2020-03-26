@@ -1,11 +1,13 @@
 import React from "react";
 import Color from "color";
-import BtnWrapper from "../../style/ButtonStyle";
+import { BtnWrapper } from "../../style/FragmentStyle";
 import theme from "../../theme";
 
-interface Props {}
+interface Props {
+  name: string;
+}
 
-const WriteBtn: React.FC<Props> = ({}) => {
+const WriteBtn: React.FC<Props> = ({ name }) => {
   const colorFromTheme = theme.bg_color;
   const bgColor = Color(colorFromTheme)
     .alpha(1)
@@ -16,7 +18,7 @@ const WriteBtn: React.FC<Props> = ({}) => {
   return (
     <>
       <BtnWrapper _bgColor={bgColor} _hoverBgColor={hoverBgColor}>
-        버튼
+        {name}
       </BtnWrapper>
     </>
   );

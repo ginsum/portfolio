@@ -26,7 +26,7 @@ const NavBar: React.FC<Props> = ({}) => {
     <>
       <BrandName>logo</BrandName>
       <LinkToPage to="/writepost">
-        <WriteBtn />
+        <WriteBtn name="글쓰기" />
       </LinkToPage>
     </>
   );

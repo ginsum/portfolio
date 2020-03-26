@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BtnWrapper = styled.div<{
+export const BtnWrapper = styled.div<{
   _bgColor: string;
   _hoverBgColor: string;
 }>`
@@ -20,4 +20,15 @@ const BtnWrapper = styled.div<{
   transition: background-color 0.2s linear;
 `;
 
-export default BtnWrapper;
+export const TitleInputWrapper = styled.input`
+  width: 70%;
+  height: 80px;
+  font-size: 36px;
+  border: none;
+  transition: 0.5s;
+  outline: none;
+  margin: 40px;
+  background-color: rgb(49, 49, 49, 0);
+  padding-left: 40px;
+  padding-bottom: 10px;
+`;
