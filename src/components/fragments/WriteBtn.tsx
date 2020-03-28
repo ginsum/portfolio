@@ -5,9 +5,10 @@ import theme from "../../theme";
 
 interface Props {
   name: string;
+  submit: any;
 }
 
-const WriteBtn: React.FC<Props> = ({ name }) => {
+const WriteBtn: React.FC<Props> = ({ name, submit }) => {
   const colorFromTheme = theme.bg_color;
   const bgColor = Color(colorFromTheme)
     .alpha(1)
@@ -17,7 +18,11 @@ const WriteBtn: React.FC<Props> = ({ name }) => {
     .string();
   return (
     <>
-      <BtnWrapper _bgColor={bgColor} _hoverBgColor={hoverBgColor}>
+      <BtnWrapper
+        _bgColor={bgColor}
+        _hoverBgColor={hoverBgColor}
+        onClick={submit}
+      >
         {name}
       </BtnWrapper>
     </>

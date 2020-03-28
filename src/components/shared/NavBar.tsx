@@ -1,7 +1,7 @@
 import React from "react";
 import WriteBtn from "../fragments/WriteBtn";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 const BrandName = styled.div`
   overflow: hidden;
@@ -12,22 +12,17 @@ const BrandName = styled.div`
   color: ${p => p.theme.title_gray};
 `;
 
-const LinkToPage = styled(Link)`
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 15px;
-`;
+interface Props extends RouteComponentProps<any> {}
 
-interface Props {}
-
-const NavBar: React.FC<Props> = ({}) => {
+const NavBar: React.FC<Props> = ({ history }) => {
+  const handlePushToWritePage = () => {
+    history.push("/writepost");
+  };
   return (
     <>
       <BrandName>logo</BrandName>
-      <LinkToPage to="/writepost">
-        <WriteBtn name="글쓰기" />
-      </LinkToPage>
+
+      <WriteBtn name="글쓰기" submit={handlePushToWritePage} />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import WriteBtn from "../fragments/WriteBtn";
+
 import SelectCatagory from "../fragments/SelectCatagory";
 import { DatePicker } from "antd";
 
@@ -14,7 +14,6 @@ const SettingPost: React.FC<Props> = ({ setDate, setCatagory }) => {
   };
   return (
     <>
-      <WriteBtn name="등록하기" />
       <SelectCatagory setCatagory={setCatagory} />
       <DatePicker onChange={handleDateChange} />
     </>

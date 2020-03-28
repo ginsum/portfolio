@@ -1,6 +1,13 @@
 import React from "react";
 
-const initPost = {
+interface Store {
+  title: any;
+  content: any;
+  date: any;
+  catagory: any;
+}
+
+const initPost: Store = {
   title: [],
   content: [],
   date: [],
@@ -9,24 +16,17 @@ const initPost = {
 
 export const PostContext = React.createContext(initPost);
 
-interface Store {
-  title: any;
-  content: any;
-  date: any;
-  catagory: any;
-}
-
 interface Props {
   children: any;
 }
 
 const PostProvider: React.FC<Props> = ({ children }) => {
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
-  const [date, setDate] = React.useState("");
-  const [catagory, setCatagory] = React.useState("");
+  const [title, setTitle] = React.useState<string>("");
+  const [content, setContent] = React.useState<string>("");
+  const [date, setDate] = React.useState<string>("");
+  const [catagory, setCatagory] = React.useState<string>("");
 
-  const store: Store = {
+  const store: Store | null = {
     title: [title, setTitle],
     content: [content, setContent],
     date: [date, setDate],

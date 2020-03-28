@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "../shared/NavBar";
 import Home from "../page/Home";
 import SignIn from "../page/SingIn";
+import SignUp from "../page/SignUp";
 import WritePost from "../page/WritePost";
 import DetailPost from "../page/DetailPost";
 
@@ -15,6 +16,7 @@ const RootRouter: React.FC<Props> = ({}) => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/writepost" component={WritePost} />
         <Route path="/readpost/:postId" component={DetailPost} />
       </Switch>
