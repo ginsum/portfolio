@@ -12,7 +12,12 @@ const theme = {
   light_cool_gray: lightCoolGray,
   // color for Text
   title_gray: titleGray,
-  border_radius_base: "6px"
+  border_radius_base: "6px",
+  // size
+  max_width: "1100px",
+  // padding
+  padding: "20px",
+  padding_content: "14px"
 };
 
 export default theme;

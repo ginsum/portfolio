@@ -4,10 +4,12 @@ export const BtnWrapper = styled.div<{
   _bgColor: string;
   _hoverBgColor: string;
 }>`
-  max-width: 130px;
+  width: 76px;
+  max-height: 30px;
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
   background-color: ${p => p._bgColor};
   white-space: nowrap;
@@ -27,46 +29,6 @@ export const TitleInputWrapper = styled.input`
   border: none;
   transition: 0.5s;
   outline: none;
-  margin: 40px;
-  background-color: rgb(49, 49, 49, 0);
-  padding-left: 40px;
-  padding-bottom: 10px;
-`;
-
-export const TitleWrapper = styled.div`
-  width: 70%;
-  height: 80px;
-  font-size: 36px;
-  margin: 40px;
-  background-color: rgb(49, 49, 49, 0);
-  padding-left: 40px;
-  padding-bottom: 10px;
-`;
-
-export const ArticleWrapper = styled.div`
-  width: 70%;
-  height: 80px;
-  font-size: 18px;
-  margin: 40px;
-  background-color: rgb(49, 49, 49, 0);
-  padding-left: 40px;
-  padding-bottom: 10px;
-`;
-
-export const UserName = styled.div`
-  width: 70%;
-  height: 80px;
-  font-size: 18px;
-  margin: 40px;
-  background-color: rgb(49, 49, 49, 0);
-  padding-left: 40px;
-  padding-bottom: 10px;
-`;
-
-export const ContentDate = styled.div`
-  width: 70%;
-  height: 80px;
-  font-size: 18px;
   margin: 40px;
   background-color: rgb(49, 49, 49, 0);
   padding-left: 40px;

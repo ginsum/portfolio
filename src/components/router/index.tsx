@@ -18,7 +18,7 @@ const RootRouter: React.FC<Props> = ({}) => {
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/writepost" component={WritePost} />
-        <Route path="/readpost/:postId" component={DetailPost} />
+        <Route path="/:postId" component={DetailPost} />
       </Switch>
     </Router>
   );
