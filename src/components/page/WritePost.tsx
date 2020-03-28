@@ -6,22 +6,38 @@ import { PostContext } from "../../store/writePost";
 import { UserContext } from "../../store/auth";
 import { RouteComponentProps } from "react-router-dom";
 import { handleNewPost } from "../../firebase";
-import WriteBtn from "../fragments/WriteBtn";
+import styled from "styled-components";
+
+const WriteWapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  justify-content: center;
+`;
+
+const WriteContentWapper = styled.div`
+  max-width: ${p => p.theme.max_width};
+  margin-top: 60px;
+  padding: ${props => props.theme.padding_content};
+  width: 100%;
+`;
 
 interface Props extends RouteComponentProps<any> {}
 
-const WritePost: React.FC<Props> = ({ history }) => {
+const WritePost: React.FC<Props> = ({ history, match }) => {
   const {
     title: [title, setTitle],
     content: [content, setContent],
     date: [date, setDate],
-    catagory: [catagory, setCatagory]
+    catagory: [catagory, setCatagory],
+    hiddenBtn: [hiddenBtn, setHiddenBtn]
   } = React.useContext(PostContext);
   const {
     userInfo: [userInfo, setUserInfo]
   } = React.useContext(UserContext);
 
   const handlePushToReset = () => {
+    setHiddenBtn(true);
     history.push("/");
   };
   const submitNewPost = () => {
@@ -45,16 +61,25 @@ const WritePost: React.FC<Props> = ({ history }) => {
         user: userInfo
       };
       const postId = Date.now().toString();
-      console.log(newPost);
       handleNewPost(userInfo["id"], newPost, handlePushToReset, postId);
     }
   };
   return (
     <>
-      <WriteBtn name="등록하기" submit={submitNewPost} />
-      <SettingPost setDate={setDate} setCatagory={setCatagory}></SettingPost>
-      <TitleInput title={title} setTitle={setTitle}></TitleInput>
-      <ContentInput content={content} setContent={setContent}></ContentInput>
+      <WriteWapper>
+        <WriteContentWapper>
+          <SettingPost
+            setDate={setDate}
+            setCatagory={setCatagory}
+            submitNewPost={submitNewPost}
+          ></SettingPost>
+          <TitleInput title={title} setTitle={setTitle}></TitleInput>
+          <ContentInput
+            content={content}
+            setContent={setContent}
+          ></ContentInput>
+        </WriteContentWapper>
+      </WriteWapper>
     </>
   );
 };

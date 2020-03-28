@@ -5,13 +5,15 @@ interface Store {
   content: any;
   date: any;
   catagory: any;
+  hiddenBtn: any;
 }
 
 const initPost: Store = {
   title: [],
   content: [],
   date: [],
-  catagory: []
+  catagory: [],
+  hiddenBtn: []
 };
 
 export const PostContext = React.createContext(initPost);
@@ -25,12 +27,14 @@ const PostProvider: React.FC<Props> = ({ children }) => {
   const [content, setContent] = React.useState<string>("");
   const [date, setDate] = React.useState<string>("");
   const [catagory, setCatagory] = React.useState<string>("");
+  const [hiddenBtn, setHiddenBtn] = React.useState(true);
 
   const store: Store | null = {
     title: [title, setTitle],
     content: [content, setContent],
     date: [date, setDate],
-    catagory: [catagory, setCatagory]
+    catagory: [catagory, setCatagory],
+    hiddenBtn: [hiddenBtn, setHiddenBtn]
   };
 
   return <PostContext.Provider value={store}>{children}</PostContext.Provider>;

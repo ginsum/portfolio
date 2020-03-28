@@ -10,7 +10,7 @@ const SelectCatagory: React.FC<Props> = ({ setCatagory }) => {
   return (
     <>
       <Select
-        style={{ width: 120 }}
+        style={{ width: 120, marginRight: 5 }}
         placeholder="catagory"
         onChange={setCatagory}
       >

@@ -15,6 +15,7 @@ const TitleInput: React.FC<Props> = ({ title, setTitle }) => {
   return (
     <>
       <TitleInputWrapper
+        placeholder="제목을 입력해주세요."
         value={title}
         onChange={handleTitleChange}
       ></TitleInputWrapper>

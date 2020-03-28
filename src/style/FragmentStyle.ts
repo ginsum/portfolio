@@ -5,8 +5,7 @@ export const BtnWrapper = styled.div<{
   _hoverBgColor: string;
 }>`
   width: 76px;
-  max-height: 30px;
-  height: 100%;
+  max-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +13,7 @@ export const BtnWrapper = styled.div<{
   background-color: ${p => p._bgColor};
   white-space: nowrap;
   padding: 0.4em 0.6em;
+  margin-left: 5px;
   border-radius: ${p => p.theme.border_radius_base};
   cursor: pointer;
   &:hover {
@@ -23,14 +23,13 @@ export const BtnWrapper = styled.div<{
 `;
 
 export const TitleInputWrapper = styled.input`
-  width: 70%;
-  height: 80px;
-  font-size: 36px;
+  width: 100%;
+  font-size: 30px;
   border: none;
   transition: 0.5s;
   outline: none;
-  margin: 40px;
-  background-color: rgb(49, 49, 49, 0);
-  padding-left: 40px;
-  padding-bottom: 10px;
+  padding: 20px 10px;
+  ::placeholder {
+    color: rgb(228, 228, 228);
+  }
 `;

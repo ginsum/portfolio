@@ -16,12 +16,23 @@ const WriteBtn: React.FC<Props> = ({ name, submit }) => {
   const hoverBgColor = Color(colorFromTheme)
     .alpha(0.8)
     .string();
+  const handleOnClick = () => {
+    if (name === "글쓰기") {
+      submit("writepost");
+    }
+    if (name === "로그인") {
+      submit("signin");
+    }
+    if (name === "등록하기") {
+      submit();
+    }
+  };
   return (
     <>
       <BtnWrapper
         _bgColor={bgColor}
         _hoverBgColor={hoverBgColor}
-        onClick={submit}
+        onClick={handleOnClick}
       >
         {name}
       </BtnWrapper>
