@@ -11,16 +11,20 @@ interface Props {
 }
 
 const PostCard: React.FC<Props> = ({ content, id }) => {
+  const desc = () => {
+    const descSlice: string = content[0].content.substring(0, 26);
+    return <div dangerouslySetInnerHTML={{ __html: descSlice }}></div>;
+  };
   return (
     <>
       <Link to={`/${id}`}>
-        <Card hoverable style={{ width: 300 }}>
+        <Card hoverable style={{ width: 340, margin: 5 }}>
           <Meta
             avatar={
               <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
             }
             title={content[0].title}
-            description={content[0].content}
+            description={desc()}
           />
         </Card>
       </Link>

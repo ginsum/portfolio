@@ -1,6 +1,7 @@
 import React from "react";
 import WriteBtn from "../fragments/WriteBtn";
 import styled from "styled-components";
+import { PostContext } from "../../store/writePost";
 import { Link, RouteComponentProps } from "react-router-dom";
 
 const NavBarWrapper = styled.header`
@@ -22,7 +23,7 @@ const ContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 48px;
+  height: 50px;
 `;
 
 const BrandName = styled.div`
@@ -34,20 +35,39 @@ const BrandName = styled.div`
   color: ${p => p.theme.title_gray};
 `;
 
+const NavBtnWrapper = styled.div`
+  display: flex;
+`;
+
 interface Props extends RouteComponentProps<any> {}
 
-const NavBar: React.FC<Props> = ({ history }) => {
-  const handlePushToWritePage = () => {
-    history.push("/writepost");
+const NavBar: React.FC<Props> = ({ history, match }) => {
+  const {
+    hiddenBtn: [hiddenBtn, setHiddenBtn]
+  } = React.useContext(PostContext);
+
+  const handlePushToPage = (path: string) => {
+    setHiddenBtn(false);
+    history.push(`/${path}`);
   };
+
+  const handleWriteBtn = () => {
+    setHiddenBtn(true);
+  };
+
   return (
     <>
       <NavBarWrapper>
         <ContentWrapper>
-          <BrandName>
+          <BrandName onClick={handleWriteBtn}>
             <Link to="/">logo</Link>
           </BrandName>
-          <WriteBtn name="글쓰기" submit={handlePushToWritePage} />
+          {hiddenBtn && (
+            <NavBtnWrapper>
+              <WriteBtn name="글쓰기" submit={handlePushToPage} />
+              <WriteBtn name="로그인" submit={handlePushToPage} />
+            </NavBtnWrapper>
+          )}
         </ContentWrapper>
       </NavBarWrapper>
     </>
