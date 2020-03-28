@@ -1,6 +1,6 @@
 import firebase from "firebase";
 import "firebase/firestore";
-import { NewContent } from "../components/shared/interface";
+import { NewContent, OnePost } from "../components/shared/interface";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -99,11 +99,38 @@ export const handleNewPost = (
   callback: any,
   postId: string
 ) => {
-  const userPostRef = postRef.doc(newContent.catagory);
-  userPostRef
+  const catagoryPostRef = postRef.doc(newContent.catagory);
+  catagoryPostRef
     .collection(userId)
     .doc(postId)
     .set(newContent)
     .then(() => callback())
     .catch(error => console.log(error));
+};
+
+export const getPostList = (catagory: string, callback: any) => {
+  const catagoryPostRef = postRef
+    .doc(catagory)
+    .collection("cAXgkDCbXLavk627CVgccH3HgQx2");
+  let postList: any[] = [];
+  catagoryPostRef.get().then(snapshot => {
+    snapshot.forEach(doc => {
+      let onePost: OnePost = {};
+      onePost[doc.id] = doc.data();
+      postList.push(onePost);
+    });
+    callback(postList);
+  });
+};
+
+export const getPostContentById = (id: string, callback: any) => {
+  const catagoryPostRef = postRef
+    .doc("blog")
+    .collection("cAXgkDCbXLavk627CVgccH3HgQx2")
+    .doc(id);
+  catagoryPostRef.get().then(snapshot => {
+    console.log(snapshot.data());
+    const data = snapshot.data();
+    callback(data);
+  });
 };
