@@ -1,6 +1,7 @@
 import React from "react";
 import PostProvider from "./writePost";
 import ContentProvider from "./readPost";
+import UserProvider from "./auth";
 
 interface Props {
   children: any;
@@ -8,9 +9,11 @@ interface Props {
 
 const StoreProvider: React.FC<Props> = ({ children }) => {
   return (
-    <PostProvider>
-      <ContentProvider>{children}</ContentProvider>
-    </PostProvider>
+    <UserProvider>
+      <PostProvider>
+        <ContentProvider>{children}</ContentProvider>
+      </PostProvider>
+    </UserProvider>
   );
 };
 
