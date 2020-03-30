@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
-import { handleSignUp } from "../../firebase/index";
+import { handleSignUp } from "../../firebase/auth";
 import styled from "styled-components";
 
 const SignWapper = styled.div`

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
-import { handleSignIn } from "../../firebase/index";
+import { handleSignIn } from "../../firebase/auth";
 import { PostContext } from "../../store/writePost";
 import { UserContext } from "../../store/auth";
 import { RouteComponentProps } from "react-router-dom";
