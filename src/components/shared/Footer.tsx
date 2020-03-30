@@ -8,22 +8,22 @@ const Wrapper = styled.div`
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-size: 12px;
-  text-align: center;
-  color: ${p => p.theme.desc_light_gray};
-  background-color: ${p => p.theme.bar_light_gray};
+  font-size: 14px;
+  justify-content: flex-start;
+  text-align: left;
+  color: white;
+  background-color: ${p => p.theme.light_cool_gray};
 `;
 
 const BarSeparator = styled.div`
   /* margin: 8px; */
   margin: 8px auto 8px auto;
   /* width: 40px; */
-  width: 12%;
+  width: 8%;
   max-width: 50px;
-  height: 4px;
-  border-radius: 2px;
+  height: 2px;
+  border-radius: 1px;
   background-color: ${p => p.theme.bar_light_gray};
 `;
 
@@ -35,6 +35,7 @@ const Footer: React.FC<Props> = ({}) => {
       <Wrapper>
         logo
         <BarSeparator />
+        Copyright © 2020 Jung HK
       </Wrapper>
     </>
   );

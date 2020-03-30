@@ -1,6 +1,6 @@
 // Primary
-const coolGray = "#A9BAC8";
-const lightCoolGray = "#C5D2DD";
+const coolGray = "#67D5B5";
+const lightCoolGray = "#94E9CF";
 const white = "#FFFFFF";
 
 // Text
@@ -19,6 +19,7 @@ const theme = {
   border_radius_base: "6px",
   // size
   max_width: "1100px",
+  media_phone_width: "680px",
   // padding
   padding: "20px",
   padding_content: "14px"
