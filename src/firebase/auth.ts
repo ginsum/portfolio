@@ -75,3 +75,16 @@ export const handleSignIn = (
       alert(error.message);
     });
 };
+
+export const handleSignOut = (callback: any, historyToPush: any) => {
+  return auth
+    .signOut()
+    .then(() => {
+      callback(null);
+      alert("로그아웃 되었습니다.");
+      historyToPush("/");
+    })
+    .catch(function(error) {
+      alert(error.message);
+    });
+};

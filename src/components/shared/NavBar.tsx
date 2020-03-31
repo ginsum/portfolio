@@ -2,7 +2,9 @@ import React from "react";
 import WriteBtn from "../fragments/WriteBtn";
 import styled from "styled-components";
 import { PostContext } from "../../store/writePost";
+import { UserContext } from "../../store/auth";
 import { Link, RouteComponentProps } from "react-router-dom";
+import { handleSignOut } from "../../firebase/auth";
 
 const NavBarWrapper = styled.header`
   position: fixed;
@@ -46,13 +48,20 @@ const NavBar: React.FC<Props> = ({ history, match }) => {
     hiddenBtn: [hiddenBtn, setHiddenBtn]
   } = React.useContext(PostContext);
 
+  const {
+    userInfo: [userInfo, setUserInfo]
+  } = React.useContext(UserContext);
+
   const handlePushToPage = (path: string) => {
-    setHiddenBtn(false);
-    history.push(`/${path}`);
+    history.push(`${path}`);
   };
 
   const handleWriteBtn = () => {
     setHiddenBtn(true);
+  };
+
+  const handleClickSignOut = () => {
+    handleSignOut(setUserInfo, handlePushToPage);
   };
 
   return (
@@ -65,7 +74,11 @@ const NavBar: React.FC<Props> = ({ history, match }) => {
           {hiddenBtn && (
             <NavBtnWrapper>
               <WriteBtn name="글쓰기" submit={handlePushToPage} />
-              <WriteBtn name="로그인" submit={handlePushToPage} />
+              {userInfo ? (
+                <WriteBtn name="로그아웃" submit={handleClickSignOut} />
+              ) : (
+                <WriteBtn name="로그인" submit={handlePushToPage} />
+              )}
             </NavBtnWrapper>
           )}
         </ContentWrapper>
