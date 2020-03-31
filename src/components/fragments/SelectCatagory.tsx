@@ -14,9 +14,8 @@ const SelectCatagory: React.FC<Props> = ({ setCatagory }) => {
         placeholder="catagory"
         onChange={setCatagory}
       >
-        <Option value="blog">BLOG</Option>
-        <Option value="project">PROJECT</Option>
-        <Option value="info">INFO</Option>
+        <Option value="precourse">Pre-course</Option>
+        <Option value="immersive">Immersive</Option>
       </Select>
     </>
   );

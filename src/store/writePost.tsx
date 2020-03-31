@@ -5,6 +5,8 @@ interface Store {
   content: any;
   date: any;
   catagory: any;
+  section: any;
+  cover: any;
   hiddenBtn: any;
 }
 
@@ -13,6 +15,8 @@ const initPost: Store = {
   content: [],
   date: [],
   catagory: [],
+  section: [],
+  cover: [],
   hiddenBtn: []
 };
 
@@ -27,6 +31,8 @@ const PostProvider: React.FC<Props> = ({ children }) => {
   const [content, setContent] = React.useState<string>("");
   const [date, setDate] = React.useState<string>("");
   const [catagory, setCatagory] = React.useState<string>("");
+  const [section, setSection] = React.useState<string>("");
+  const [cover, setCover] = React.useState<string>("");
   const [hiddenBtn, setHiddenBtn] = React.useState(true);
 
   const store: Store | null = {
@@ -34,6 +40,8 @@ const PostProvider: React.FC<Props> = ({ children }) => {
     content: [content, setContent],
     date: [date, setDate],
     catagory: [catagory, setCatagory],
+    section: [section, setSection],
+    cover: [cover, setCover],
     hiddenBtn: [hiddenBtn, setHiddenBtn]
   };
 

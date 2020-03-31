@@ -4,6 +4,8 @@ export interface NewContent {
   content: string;
   date: string;
   catagory: string;
+  section: string;
+  cover: string;
 }
 
 export interface OnePost {
@@ -15,6 +17,8 @@ export interface Content {
   content: string;
   date: string;
   title: string;
+  section: string;
+  cover: string;
   user: UserInfo;
 }
 

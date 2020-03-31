@@ -10,7 +10,7 @@ export const handleNewPost = (
   callback: any,
   postId: string
 ) => {
-  const catagoryPostRef = postRef.doc(newContent.catagory);
+  const catagoryPostRef = postRef.doc(newContent.section);
   catagoryPostRef
     .collection(userId)
     .doc(postId)
@@ -19,12 +19,12 @@ export const handleNewPost = (
     .catch(error => console.log(error));
 };
 
-export const getPostList = (catagory: string, callback: any) => {
-  const catagoryPostRef = postRef
-    .doc(catagory)
+export const getPostList = (section: string, callback: any) => {
+  const sectionPostRef = postRef
+    .doc(section)
     .collection("cAXgkDCbXLavk627CVgccH3HgQx2");
   let postList: any[] = [];
-  catagoryPostRef.get().then(snapshot => {
+  sectionPostRef.get().then(snapshot => {
     snapshot.forEach(doc => {
       let onePost: OnePost = {};
       onePost[doc.id] = doc.data();
@@ -35,15 +35,15 @@ export const getPostList = (catagory: string, callback: any) => {
 };
 
 export const getPostContentById = (
-  catagory: string,
+  section: string,
   id: string,
   callback: any
 ) => {
-  const catagoryPostRef = postRef
-    .doc(catagory)
+  const sectionPostRef = postRef
+    .doc(section)
     .collection("cAXgkDCbXLavk627CVgccH3HgQx2")
     .doc(id);
-  catagoryPostRef.get().then(snapshot => {
+  sectionPostRef.get().then(snapshot => {
     console.log(snapshot.data());
     const data = snapshot.data();
     callback(data);
@@ -51,15 +51,15 @@ export const getPostContentById = (
 };
 
 export const deletePostContentById = (
-  catagory: string,
+  section: string,
   id: string,
   callback: any
 ) => {
-  const catagoryPostRef = postRef
-    .doc(catagory)
+  const sectionPostRef = postRef
+    .doc(section)
     .collection("cAXgkDCbXLavk627CVgccH3HgQx2")
     .doc(id);
-  catagoryPostRef
+  sectionPostRef
     .delete()
     .then(function() {
       console.log("Document successfully deleted!");

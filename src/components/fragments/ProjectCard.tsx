@@ -24,16 +24,8 @@ const ProjectCard: React.FC<Props> = ({ content, id }) => {
   return (
     <>
       <CardWapper>
-        <Link to={`/${content[0].catagory}/${id}`}>
-          <Card
-            hoverable
-            cover={
-              <img
-                alt="example"
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-              />
-            }
-          >
+        <Link to={`/${content[0].section}/${id}`}>
+          <Card hoverable cover={<img alt="example" src={content[0].cover} />}>
             <Meta title={content[0].title} description={desc()} />
           </Card>
         </Link>
