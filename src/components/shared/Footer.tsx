@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   text-align: left;
   color: white;
-  background-color: ${p => p.theme.light_cool_gray};
+  background-color: #cff0da;
 `;
 
 const BarSeparator = styled.div`

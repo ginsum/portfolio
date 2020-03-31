@@ -1,36 +1,61 @@
 import React from "react";
-import styled from "styled-components";
-
-const PostWapper = styled.div`
-  display: flex;
-  width: 100%;
-  height: 90vh;
-  justify-content: center;
-`;
-
-const PostContentWapper = styled.div`
-  max-width: ${p => p.theme.max_width};
-  padding: ${props => props.theme.padding_content};
-  width: 100%;
-  margin-top: 80px;
-`;
+import { Button, PageHeader, Dropdown, Menu } from "antd";
+import { deletePostContentById } from "../../firebase/content";
+import { EllipsisOutlined } from "@ant-design/icons";
 
 interface Props {
   content: any;
+  postId: string;
+  handlePushToReset: any;
 }
 
-const TitleArea: React.FC<Props> = ({ content }) => {
+const TitleArea: React.FC<Props> = ({ content, postId, handlePushToReset }) => {
+  const deletPost = () => {
+    deletePostContentById(content.catagory, postId, handlePushToReset);
+  };
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <Button type="link" onClick={deletPost}>
+          edit
+        </Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button type="link" onClick={deletPost}>
+          delete
+        </Button>
+      </Menu.Item>
+    </Menu>
+  );
+  const DropdownMenu = () => {
+    return (
+      <Dropdown key="more" overlay={menu}>
+        <Button
+          style={{
+            border: "none",
+            padding: 0
+          }}
+        >
+          <EllipsisOutlined
+            style={{
+              fontSize: 20,
+              verticalAlign: "top"
+            }}
+          />
+        </Button>
+      </Dropdown>
+    );
+  };
   return (
     <>
       {content ? (
-        <>
-          <PostWapper>
-            <PostContentWapper>
-              <h1 style={{ fontSize: "100px" }}>{content.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: content.content }}></div>
-            </PostContentWapper>
-          </PostWapper>
-        </>
+        <PageHeader
+          title={content.title}
+          subTitle={content.date}
+          backIcon={false}
+          style={{ borderBottom: "1px solid #eee" }}
+          extra={[<DropdownMenu key="more" />]}
+        />
       ) : null}
     </>
   );

@@ -6,7 +6,6 @@ import PostCard from "./PostCard";
 const ListWapper = styled.div`
   display: flex;
   width: 100%;
-  height: 200px;
   padding: 30px;
   justify-content: center;
 `;
@@ -16,6 +15,7 @@ const ListCardWapper = styled.div`
   padding: ${props => props.theme.padding_content};
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 interface Props {

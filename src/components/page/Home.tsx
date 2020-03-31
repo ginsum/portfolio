@@ -6,23 +6,24 @@ import IntroImg from "../fragments/IntroImg";
 import styled from "styled-components";
 import SkillCard from "../fragments/SkillCard";
 import ProjectList from "../fragments/ProjectList";
+import { PageHeader } from "antd";
+import { Link } from "react-router-dom";
 
-interface Props {}
 const HomeWapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const MainTitle = styled.div`
-  padding-top: 30px;
+  max-width: ${p => p.theme.max_width};
   padding-left: ${props => props.theme.padding_content};
   padding-right: ${props => props.theme.padding_content};
-  display: flex;
-  font-size: 20px;
-  color: #ddd;
-  justify-content: center;
+  border-bottom: 1px solid #ddd;
 `;
+
+interface Props {}
 
 const Home: React.FC<Props> = ({}) => {
   const {
@@ -38,11 +39,21 @@ const Home: React.FC<Props> = ({}) => {
     <>
       <HomeWapper>
         <IntroImg />
-        <MainTitle>JUNG HK</MainTitle>
+        {/* <MainTitle>JUNG HK</MainTitle> */}
         <SkillCard />
-        <MainTitle>PROJECT</MainTitle>
+        <MainTitle>
+          <PageHeader
+            title="Project"
+            extra={[<Link to="/projectlist">see more</Link>]}
+          />
+        </MainTitle>
         <ProjectList projectContent={projectContent} />
-        <MainTitle>BLOG</MainTitle>
+        <MainTitle>
+          <PageHeader
+            title="Blog"
+            extra={[<Link to="/bloglist">see more</Link>]}
+          />
+        </MainTitle>
         <ListPost postContent={postContent} />
       </HomeWapper>
     </>
