@@ -1,30 +1,29 @@
 import React from "react";
 import { Content } from "../components/shared/interface";
 
-const initStore = {
-  postContent: []
+const initStore: Store = {
+  postContent: [],
+  projectContent: []
 };
 
 export const ContentContext = React.createContext(initStore);
-
-interface ListContent {
-  [Key: string]: Content;
-}
 
 interface Props {
   children: any;
 }
 
 interface Store {
-  postContent: any;
+  postContent: Content[] | any;
+  projectContent: Content[] | any;
 }
 
 const ContentProvider: React.FC<Props> = ({ children }) => {
-  const [postContent, setPostContent] = React.useState<Content[] | null>([]);
+  const [postContent, setPostContent] = React.useState<Content[]>([]);
+  const [projectContent, setProjectContent] = React.useState<Content[]>([]);
   const store: Store = {
-    postContent: [postContent, setPostContent]
+    postContent: [postContent, setPostContent],
+    projectContent: [projectContent, setProjectContent]
   };
-  console.log(store);
   return (
     <ContentContext.Provider value={store}>{children}</ContentContext.Provider>
   );

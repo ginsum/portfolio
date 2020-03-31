@@ -7,6 +7,8 @@ import SignIn from "../page/SingIn";
 import SignUp from "../page/SignUp";
 import WritePost from "../page/WritePost";
 import DetailPost from "../page/DetailPost";
+import BlogList from "../page/BlogList";
+import ProjectList from "../page/ProjectList";
 
 interface Props {}
 
@@ -20,7 +22,9 @@ const RootRouter: React.FC<Props> = ({}) => {
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/writepost" component={WritePost} />
-          <Route path="/:postId" component={DetailPost} />
+          <Route path="/:catagory/:postId" component={DetailPost} />
+          <Route path="/bloglist" component={BlogList} />
+          <Route path="/projectlist" component={ProjectList} />
         </Switch>
       </Router>
       <Footer />

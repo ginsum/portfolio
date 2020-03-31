@@ -5,7 +5,7 @@ import ContentInput from "../fragments/ContentInput";
 import { PostContext } from "../../store/writePost";
 import { UserContext } from "../../store/auth";
 import { RouteComponentProps } from "react-router-dom";
-import { handleNewPost } from "../../firebase";
+import { handleNewPost } from "../../firebase/content";
 import styled from "styled-components";
 
 const WriteWapper = styled.div`
@@ -30,6 +30,8 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
     content: [content, setContent],
     date: [date, setDate],
     catagory: [catagory, setCatagory],
+    cover: [cover, setCover],
+    section: [section, setSection],
     hiddenBtn: [hiddenBtn, setHiddenBtn]
   } = React.useContext(PostContext);
   const {
@@ -50,7 +52,7 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
       if (content === "") {
         alert("본문을 입력해주세요");
       }
-      if (catagory === "") {
+      if (section === "") {
         alert("카테고리를 선택해주세요");
       }
       const newPost = {
@@ -58,7 +60,9 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
         content: content,
         date: date,
         catagory: catagory,
-        user: userInfo
+        user: userInfo,
+        section: section,
+        cover: cover
       };
       const postId = Date.now().toString();
       handleNewPost(userInfo["id"], newPost, handlePushToReset, postId);
@@ -72,6 +76,8 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
             setDate={setDate}
             setCatagory={setCatagory}
             submitNewPost={submitNewPost}
+            setCover={setCover}
+            setSection={setSection}
           ></SettingPost>
           <TitleInput title={title} setTitle={setTitle}></TitleInput>
           <ContentInput

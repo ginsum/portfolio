@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 const ImgWrapper = styled.div`
   display: flex;
@@ -51,10 +52,10 @@ const IntroImg: React.FC<Props> = ({}) => {
             shape="round"
             style={{ width: 140, marginRight: 10 }}
           >
-            PROJECT
+            <Link to="/projectlist">PROJECT</Link>
           </Button>
           <Button type="primary" shape="round" style={{ width: 140 }}>
-            BLOG
+            <Link to="/bloglist">BLOG</Link>
           </Button>
         </BtnWrapper>
       </ImgWrapper>
