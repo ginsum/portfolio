@@ -69,7 +69,7 @@ const NavBar: React.FC<Props> = ({ history, match }) => {
       <NavBarWrapper>
         <ContentWrapper>
           <BrandName onClick={handleWriteBtn}>
-            <Link to="/">logo</Link>
+            <Link to="/">hello world</Link>
           </BrandName>
           {hiddenBtn && (
             <NavBtnWrapper>
