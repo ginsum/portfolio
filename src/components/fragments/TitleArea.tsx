@@ -2,21 +2,42 @@ import React from "react";
 import { Button, PageHeader, Dropdown, Menu } from "antd";
 import { deletePostContentById } from "../../firebase/content";
 import { EllipsisOutlined } from "@ant-design/icons";
+import { UserContext } from "../../store/auth";
+import { UserInfo } from "../shared/interface";
 
 interface Props {
   content: any;
   postId: string;
   handlePushToReset: any;
+  handlePushToSignin: any;
+  handlePushToEdit: any;
 }
 
-const TitleArea: React.FC<Props> = ({ content, postId, handlePushToReset }) => {
+const TitleArea: React.FC<Props> = ({
+  content,
+  postId,
+  handlePushToReset,
+  handlePushToSignin,
+  handlePushToEdit
+}) => {
+  const {
+    userInfo: [userInfo, setUserInfo]
+  } = React.useContext(UserContext);
   const deletPost = () => {
-    deletePostContentById(content.catagory, postId, handlePushToReset);
+    if (userInfo) {
+      deletePostContentById(content.section, postId, handlePushToReset);
+    } else {
+      alert("로그인이 필요합니다.");
+      // handlePushToSignin();
+    }
   };
   const menu = (
     <Menu>
       <Menu.Item>
-        <Button type="link" onClick={deletPost}>
+        <Button
+          type="link"
+          onClick={() => handlePushToEdit(content.section, postId)}
+        >
           edit
         </Button>
       </Menu.Item>
