@@ -11,14 +11,14 @@ import styled from "styled-components";
 const WriteWapper = styled.div`
   display: flex;
   width: 100%;
-  height: 90vh;
+  min-height: 90vh;
   justify-content: center;
 `;
 
 const WriteContentWapper = styled.div`
-  max-width: ${p => p.theme.max_width};
+  max-width: ${(p) => p.theme.max_width};
   margin-top: 60px;
-  padding: ${props => props.theme.padding_content};
+  padding: ${(props) => props.theme.padding_content};
   width: 100%;
 `;
 
@@ -32,10 +32,10 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
     catagory: [catagory, setCatagory],
     cover: [cover, setCover],
     section: [section, setSection],
-    hiddenBtn: [hiddenBtn, setHiddenBtn]
+    hiddenBtn: [hiddenBtn, setHiddenBtn],
   } = React.useContext(PostContext);
   const {
-    userInfo: [userInfo, setUserInfo]
+    userInfo: [userInfo, setUserInfo],
   } = React.useContext(UserContext);
 
   const handlePushToReset = () => {
@@ -62,7 +62,7 @@ const WritePost: React.FC<Props> = ({ history, match }) => {
         catagory: catagory,
         user: userInfo,
         section: section,
-        cover: cover
+        cover: cover,
       };
       const postId = Date.now().toString();
       handleNewPost(userInfo["id"], newPost, handlePushToReset, postId);

@@ -24,7 +24,7 @@ const SettingPost: React.FC<Props> = ({
   setCatagory,
   submitNewPost,
   setCover,
-  setSection
+  setSection,
 }) => {
   const [coverModal, setCoverModal] = React.useState(false);
   const [coverUrl, setCoverUrl] = React.useState("");
@@ -60,7 +60,7 @@ const SettingPost: React.FC<Props> = ({
         </Modal>
         <SelectCatagory setCatagory={setCatagory} />
         <DatePicker
-          style={{ width: 120, marginRight: 5 }}
+          style={{ width: 140, marginRight: 5 }}
           onChange={handleDateChange}
         />
         <WriteBtn name="등록하기" submit={submitNewPost} />
