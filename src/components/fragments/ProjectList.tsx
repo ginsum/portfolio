@@ -11,8 +11,8 @@ const ListWapper = styled.div`
 `;
 
 const ListCardWapper = styled.div`
-  max-width: ${p => p.theme.max_width};
-  padding: ${props => props.theme.padding_content};
+  max-width: ${(p) => p.theme.max_width};
+  padding: ${(props) => props.theme.padding_content};
   display: flex;
   width: 100%;
   flex-wrap: wrap;

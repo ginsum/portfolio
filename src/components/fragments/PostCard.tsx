@@ -18,7 +18,7 @@ interface Props {
 
 const PostCard: React.FC<Props> = ({ content, id }) => {
   const desc = () => {
-    const descSlice: string = content[0].content.substring(0, 26);
+    const descSlice: string = content[0].content.substring(0, 256);
     return <div dangerouslySetInnerHTML={{ __html: descSlice }}></div>;
   };
   return (

@@ -11,8 +11,8 @@ const ListWapper = styled.div`
 `;
 
 const ListCardWapper = styled.div`
-  max-width: ${p => p.theme.max_width};
-  padding: ${props => props.theme.padding_content};
+  max-width: ${(p) => p.theme.max_width};
+  padding: ${(props) => props.theme.padding_content};
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -23,7 +23,8 @@ interface Props {
 }
 
 const ListPost: React.FC<Props> = ({ postContent }) => {
-  const list = postContent.map((post: any) => {
+  const postContents = postContent.slice(postContent.length - 6);
+  const list = postContents.map((post: any) => {
     const postId: string[] = Object.keys(post);
     const content: Content[] = Object.values(post);
     return (
@@ -33,7 +34,7 @@ const ListPost: React.FC<Props> = ({ postContent }) => {
   return (
     <>
       <ListWapper>
-        <ListCardWapper>{list}</ListCardWapper>
+        <ListCardWapper>{list.reverse()}</ListCardWapper>
       </ListWapper>
     </>
   );

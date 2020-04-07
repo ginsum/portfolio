@@ -18,7 +18,7 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({ content, id }) => {
   const desc = () => {
-    const descSlice: string = content[0].content.substring(0, 26);
+    const descSlice: string = content[0].content.substring(0, 28);
     return <div dangerouslySetInnerHTML={{ __html: descSlice }}></div>;
   };
   return (

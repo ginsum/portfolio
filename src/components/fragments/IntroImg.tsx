@@ -7,7 +7,7 @@ const ImgWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 520px;
-  padding-top: 20px;
+  padding-top: 0px;
   background: url(https://images.unsplash.com/photo-1535489487631-2058faeabfd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80)
     no-repeat center;
   background-color: #e7e7e7;
@@ -17,7 +17,7 @@ const ImgWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: ${p => p.theme.max_width};
+  max-width: ${(p) => p.theme.max_width};
   display: flex;
 `;
 
