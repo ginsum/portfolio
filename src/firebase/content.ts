@@ -44,7 +44,6 @@ export const getPostContentById = (
     .collection("cAXgkDCbXLavk627CVgccH3HgQx2")
     .doc(id);
   sectionPostRef.get().then(snapshot => {
-    console.log(snapshot.data());
     const data = snapshot.data();
     callback(data);
   });
@@ -68,4 +67,20 @@ export const deletePostContentById = (
     .catch(function(error) {
       console.error("Error removing document: ", error);
     });
+};
+
+export const updatePostContentById = (
+  section: string,
+  id: string,
+  newContent: any,
+  callback: any
+) => {
+  const sectionPostRef = postRef
+    .doc(section)
+    .collection("cAXgkDCbXLavk627CVgccH3HgQx2")
+    .doc(id);
+  sectionPostRef.update(newContent).then(() => {
+    console.log("update success");
+    callback();
+  });
 };

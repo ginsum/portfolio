@@ -11,15 +11,11 @@ interface Props {
 
 const WriteBtn: React.FC<Props> = ({ name, submit }) => {
   const {
-    hiddenBtn: [hiddenBtn, setHiddenBtn]
+    hiddenBtn: [hiddenBtn, setHiddenBtn],
   } = React.useContext(PostContext);
   const colorFromTheme = theme.bg_color;
-  const bgColor = Color(colorFromTheme)
-    .alpha(1)
-    .string();
-  const hoverBgColor = Color(colorFromTheme)
-    .alpha(0.8)
-    .string();
+  const bgColor = Color(colorFromTheme).alpha(1).string();
+  const hoverBgColor = Color(colorFromTheme).alpha(0.8).string();
   const handleOnClick = () => {
     if (name === "글쓰기") {
       submit("/writepost");
