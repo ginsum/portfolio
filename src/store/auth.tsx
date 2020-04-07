@@ -1,7 +1,8 @@
 import React from "react";
+import { UserInfo } from "../components/shared/interface";
 
 const initStore = {
-  userInfo: []
+  userInfo: [],
 };
 
 export const UserContext = React.createContext(initStore);
@@ -11,19 +12,15 @@ interface Props {
 }
 
 interface Store {
-  userInfo: any;
+  userInfo: UserInfo[] | any;
 }
 
 const UserProvider: React.FC<Props> = ({ children }) => {
-  // const initUser = {
-
-  // }
-  const [userInfo, setUserInfo] = React.useState(null);
+  const [userInfo, setUserInfo] = React.useState<UserInfo | null>(null);
 
   const store: Store = {
-    userInfo: [userInfo, setUserInfo]
+    userInfo: [userInfo, setUserInfo],
   };
-  console.log(store);
   return <UserContext.Provider value={store}>{children}</UserContext.Provider>;
 };
 export default UserProvider;
